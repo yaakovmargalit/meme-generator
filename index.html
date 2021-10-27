@@ -43,9 +43,13 @@
 
 
     <div class="meme-editor">
-        sdf
+        <canvas height="400" width="400" class="main-canvas">
+        </canvas>
+        <input type="text" name="meme-text" oninput="inputChanged(this)">
     </div>
+    <script src="js/services/meme.service.js"></script>
     <script src="js/controls/gallaery.control.js"></script>
+    <script src="js/controls/editor.control.js"></script>
 </body>
 
 </html>
