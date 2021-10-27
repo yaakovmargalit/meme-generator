@@ -24,9 +24,9 @@
                 </svg>
             <nav class="main-menu">
                 <ul>
-                    <li><a href="#">Memes</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a class="meme-item" href="#">Memes</a></li>
+                    <li><a class="gallery-item activ" href="#">Gallery</a></li>
+                    <li><a class="about-item" href="#">About</a></li>
                 </ul>
             </nav>
         </header>
@@ -39,21 +39,33 @@
 
             </div>
         </div>
+
+
+        <div class="meme-editor">
+            <div class="view-area">
+                <div class="back" onclick="backToGallery()">
+                    <p class=""><img src="img/back.svg" alt=""> &nbsp;&nbsp;Back to Gallery</p>
+                </div>
+                <canvas height="400" width="400" class="main-canvas">
+            </canvas>
+            </div>
+
+
+
+            <div class="edit-controls">
+                <input type="text" name="meme-text" oninput="inputChanged(this)">
+                <button class="font-size-btn control-btns" onclick="increaseFont()">A <span>+</span></button>
+                <button class="font-size-btn control-btns" onclick="decreaseFont()">A <span>-</span></button>
+                <button class="control-btns" onclick="upLine()"> <img src="img/up.svg" alt=""></button>
+                <button class="control-btns" onclick="downLine()"> <img src="img/down.svg" alt=""></button>
+                <button class="control-btns" onclick="switchLine()"> <img src="img/up-down.svg" alt=""></button>
+            </div>
+
+        </div>
     </div>
 
 
-    <div class="meme-editor">
-        <canvas height="400" width="400" class="main-canvas">
-        </canvas>
-        <input type="text" name="meme-text" oninput="inputChanged(this)">
-        <button class="font-size-btn" onclick="increaseFont()">A <span>+</span></button>
-        <button class="font-size-btn" onclick="decreaseFont()">A <span>-</span></button>
 
-        <button class="" onclick="upLine()"> <img src="img/up.svg" alt=""></button>
-        <button class="" onclick="downLine()"> <img src="img/down.svg" alt=""></button>
-        <button class="" onclick="switchLine()"> <img src="img/up-down.svg" alt=""></button>
-
-    </div>
     <script src="js/services/meme.service.js"></script>
     <script src="js/controls/gallaery.control.js"></script>
     <script src="js/controls/editor.control.js"></script>

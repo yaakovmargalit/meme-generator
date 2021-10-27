@@ -1,17 +1,52 @@
-.meme-editor {
-    display: none;
-    min-height: 100vh;
-    width: 100%;
+@font-face {
+    font-family: roboto;
+    src: url(/fonts/roboto/Roboto-Medium.ttf);
 }
 
-.font-size-btn {
-    font-family: Georgia;
-    position: relative;
-    letter-spacing: 0;
-    width: 20px;
+* {
+    font-family: roboto;
+}
+
+button {
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+.main-canvas {
+    margin-block-start: 156px;
+    border-radius: 10px;
+}
+
+.control-btns {
+    height: 13px;
+    width: 16px;
+    font-family: Georgia;
+    position: relative;
+}
+
+.meme-editor {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.meme-editor>:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 6;
+}
+
+.meme-editor>:last-child {
+    flex: 4;
+}
+
+.font-size-btn {
+    letter-spacing: 0;
 }
 
 .font-size-btn span {
@@ -20,4 +55,18 @@
     top: 0;
     right: 0;
     line-height: 0;
+}
+
+.back {
+    position: absolute;
+    top: 24px;
+    left: 48px;
+    cursor: pointer;
+}
+
+.back p {
+    color: #989898;
+    font-size: 14px;
+    line-height: 0;
+    margin-inline-start: 10px;
 }

@@ -11,7 +11,12 @@ function renderGallery() {
 }
 
 function createMeme(img) {
-    document.querySelector('.main-gallery').style.display = 'none'
-    document.querySelector('.meme-editor').style.display = 'block'
+    document.querySelector('.gallery').style.display = 'none'
+    document.querySelector('.meme-editor').style.display = 'flex'
     renderEditor(img.id)
+}
+
+function backToGallery() {
+    document.querySelector('.gallery').style.display = 'flex'
+    document.querySelector('.meme-editor').style.display = 'none'
 }
