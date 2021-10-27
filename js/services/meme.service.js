@@ -91,28 +91,21 @@ var gImgs = [{
 ];
 
 var gMeme = {
-    selectedImgId: 5,
+    selectedImgId: 1,
     selectedLineIdx: 1,
     lines: [{
-            txt: 'I never eat Falafel',
-            size: 20,
-            align: 'left',
-            color: 'red'
-        },
-        {
-            txt: 'I never eat Falafel',
-            size: 20,
-            align: 'left',
-            color: 'red'
-        },
-        {
-            txt: 'I never eat Falafel',
-            size: 20,
-            align: 'left',
-            color: 'red'
-        },
-
-    ]
+        txt: 'I never eat Falafel',
+        size: 40,
+        align: 'left',
+        color: 'red',
+        positionY: 40
+    }, {
+        txt: 'I never eat Falafel',
+        size: 40,
+        align: 'left',
+        color: 'red',
+        positionY: 90
+    }]
 }
 
 function getImgSrc(id) {
