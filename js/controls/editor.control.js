@@ -12,7 +12,7 @@ function renderEditor(imgId) {
 
 function renderCanvas(imgId) {
     var img = new Image();
-    img.src = `meme-imgs/${imgId}.jpg`
+    img.src = getImgSrc(imgId)
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
         gMeme.lines.forEach((line, Idx) => {

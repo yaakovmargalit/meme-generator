@@ -5,7 +5,7 @@ function init() {
 function renderGallery() {
     var strHtml = ''
     for (let i = 1; i <= 17; i++) {
-        strHtml += `<img src="meme-imgs/${i}.jpg" id="${i}" onclick="createMeme(this)">`
+        strHtml += `<img src="img/${i}.jpg" id="${i}" onclick="createMeme(this)">`
     }
     document.querySelector('.gallery-imgs-grid').innerHTML = strHtml;
 }
