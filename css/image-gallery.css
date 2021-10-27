@@ -22,10 +22,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #F8F8F8;
 }
 
 body {
-    background-color: #F8F8F8;
+    min-height: 100vh;
+}
+
+.main-gallery {
+    position: relative;
+    margin-top: 50px;
 }
 
 ul {
@@ -37,10 +43,14 @@ a {
 }
 
 .top-bar {
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 50px;
+    width: 100%;
+    top: 0;
+    z-index: 100;
     background-color: #fff;
 }
 

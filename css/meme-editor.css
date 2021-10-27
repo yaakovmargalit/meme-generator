@@ -7,6 +7,10 @@
     font-family: roboto;
 }
 
+body {
+    height: 100;
+}
+
 button {
     background-color: transparent;
     border: none;
@@ -18,11 +22,71 @@ button {
     border-radius: 10px;
 }
 
+.edit-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.header-controls>:first-child {
+    font-size: 24px;
+    color: #727272;
+}
+
+.header-controls {
+    width: 490px;
+    display: flex;
+    justify-content: space-between;
+    padding: 21px;
+}
+
+.input-controls {
+    width: 486px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #EBEBEB;
+    margin-bottom: 30px;
+}
+
+.input-controls>:first-child {
+    border-bottom: 1px solid #EBEBEB;
+}
+
+.input-controls>:last-child {
+    border: none;
+    padding: 0;
+    margin: 21px 0 26px 24px;
+}
+
+.input-controls>:last-child:focus {
+    outline: none;
+}
+
 .control-btns {
     height: 13px;
     width: 16px;
     font-family: Georgia;
     position: relative;
+    margin-inline-end: 20px;
+}
+
+.text-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.font-selector {
+    width: 160px;
+    height: 22px;
+    font-size: 12px;
+    border-radius: 2px;
+    color: #989898;
+    margin: 10px 23px 10px 12px;
+}
+
+.font-selector:focus {
+    outline: none;
 }
 
 .meme-editor {
@@ -30,19 +94,40 @@ button {
     height: 100%;
     width: 100%;
     position: relative;
-    align-items: center;
-    justify-content: center;
 }
 
 .meme-editor>:first-child {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex: 6;
 }
 
 .meme-editor>:last-child {
     flex: 4;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #F8F8F8;
+    height: 93vh;
+    overflow: hidden;
+}
+
+.stikers {
+    height: 165px;
+    width: 486px;
+    background-color: white;
+    border-top: 1px solid #EBEBEB;
+    display: grid;
+    grid-template-columns: repeat(6, 81px);
+    grid-template-rows: 81px 81px;
+    padding: 5px;
+}
+
+.stikers img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    cursor: pointer;
 }
 
 .font-size-btn {
@@ -66,7 +151,9 @@ button {
 
 .back p {
     color: #989898;
+    display: inline;
     font-size: 14px;
-    line-height: 0;
-    margin-inline-start: 10px;
+    font-weight: 400;
+    margin-inline-start: 3px;
+    vertical-align: top;
 }
