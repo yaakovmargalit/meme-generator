@@ -94,19 +94,19 @@ var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 1,
     lines: [{
-        txt: 'I never eat Falafel',
+        type: 'txt',
+        txt: 'Text...',
         size: 40,
-        align: 'left',
-        color: 'red',
-        positionY: 40
-    }, {
-        txt: 'I never eat Falafel',
-        size: 40,
-        align: 'left',
-        color: 'red',
-        positionY: 90
+        align: 'center',
+        color: '#fff',
+        stroke: '#000',
+        positionY: 40,
+        width: 400
     }]
 }
+
+
+var gMyMeme = lode
 
 function getImgSrc(id) {
     return gImgs.find(img => img.id === +id).url
