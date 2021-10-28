@@ -106,7 +106,7 @@ var gMeme = {
 }
 
 
-var gMyMeme = lode
+//var gMyMeme = lode
 
 function getImgSrc(id) {
     return gImgs.find(img => img.id === +id).url
