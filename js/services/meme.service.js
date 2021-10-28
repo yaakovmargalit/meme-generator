@@ -106,11 +106,6 @@ var gMeme = {
 }
 
 
-var gMyMeme = loadFromStorage('my-memes');
-
-if (!gMyMeme) {
-    gMyMeme = []
-}
 
 function getImgSrc(id) {
     return gImgs.find(img => img.id === +id).url

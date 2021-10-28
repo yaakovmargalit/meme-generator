@@ -16,7 +16,12 @@ function createMeme(img) {
     renderEditor(img.id)
 }
 
+
+
 function backToGallery() {
-    document.querySelector('.gallery').style.display = 'flex'
     document.querySelector('.meme-editor').style.display = 'none'
+    document.querySelector('.gallery').style.display = 'flex'
+    document.querySelector('.memes').style.display = 'none'
+    document.querySelector('.gallery-item').classList.add('activ')
+    document.querySelector('.meme-item').classList.remove('activ')
 }

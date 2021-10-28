@@ -24,8 +24,8 @@
             </svg>
         <nav class="main-menu">
             <ul>
-                <li><a class="meme-item" href="#">Memes</a></li>
-                <li><a class="gallery-item activ" href="#">Gallery</a></li>
+                <li><a class="meme-item" onclick="goMemes()" href="#">Memes</a></li>
+                <li><a class="gallery-item activ" onclick="backToGallery()" href="#">Gallery</a></li>
                 <li><a class="about-item" href="#">About</a></li>
             </ul>
         </nav>
@@ -108,10 +108,10 @@
 
                 <div class="share">
                     <button class="share-btn">Share</button>
-                    <ul>
+                    <ul class="share-menu">
                         <li><a href="" onclick="saveCanvasLocal()">Save</a> </li>
                         <li><a href="" onclick="downloadImg(this)" download="my-img.jpg">Download</a> </li>
-                        <li><a href="">Share on Facebook</a> </li>
+                        <li onclick="shareOnFB()"><a target="_blank" class="fb-share">Share on Facebook</a> </li>
                     </ul>
 
                 </div>
@@ -123,7 +123,9 @@
         </div>
 
         <div class="memes">
+            <div class="memes-grid">
 
+            </div>
         </div>
     </div>
 

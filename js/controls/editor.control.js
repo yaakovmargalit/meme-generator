@@ -148,7 +148,8 @@ function addEmoji(emojiNum) {
 }
 
 function saveCanvasLocal() {
-    saveToStorage('my-memes', [gElCanvas.toDataURL()])
+    gMyMemes.push(gElCanvas.toDataURL())
+    saveToStorage('my-memes', gMyMemes)
 }
 
 function downloadImg(elLink) {
@@ -189,4 +190,16 @@ function drawRect(x, y, a, b) {
     gCtx.strokeStyle = 'black';
     gCtx.stroke();
     gCtx.beginPath();
+}
+
+function shareOnFB() {
+
+    const encodedUploadedImgUrl = encodeURIComponent(gElCanvas.toDataURL("image/jpeg"))
+
+    document.querySelector('.fb-share').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`
+    document.querySelector('.fb-share').addEventListener('click', () => {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${gElCanvas.toDataURL("image/jpeg")}&t=${gElCanvas.toDataURL("image/jpeg")}`);
+        return false
+
+    })
 }

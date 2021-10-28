@@ -180,6 +180,35 @@ button {
 }
 
 .share {
+    position: relative;
     align-self: flex-end;
     margin-inline-end: 60px;
+}
+
+.share-menu {
+    list-style: none;
+    position: absolute;
+    height: 200px;
+    width: 160px;
+    background-color: rgb(252, 245, 222);
+    top: -200px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 200;
+    /* transform: scaleY(0); */
+    /* transform-origin: bottom; */
+    transition: transform 0.5s;
+}
+
+.share-menu li:hover {
+    background-color: rgb(226, 208, 138);
+}
+
+.share-btn:focus+.share-menu {
+    /* transform: scaleY(1); */
+    height: 200px;
 }
