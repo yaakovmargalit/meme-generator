@@ -44,7 +44,7 @@
         <div class="meme-editor">
             <div class="view-area">
                 <div class="back" onclick="backToGallery()">
-                    <img src="img/back.svg" alt="">
+                    <img src="img/img-controls/back.svg" alt="">
                     <p class="">Back to Gallery</p>
 
                 </div>
@@ -78,28 +78,41 @@
                         <button class="font-size-btn control-btns" onclick="increaseFont()">A <span>+</span></button>
                         <button class="font-size-btn control-btns" onclick="decreaseFont()">A <span>-</span></button>
                         <img src="img/img-controls/line.svg" alt="">
-                        <button class="control-btns" onclick="removeLine()"> <img src="img/img-controls/text-left.svg" alt=""></button>
-                        <button class="control-btns" onclick="removeLine()"> <img src="img/img-controls/text-center.svg" alt=""></button>
-                        <button class="control-btns" onclick="removeLine()"> <img src="img/img-controls/text-right.svg" alt=""></button>
+                        <button class="control-btns" onclick="lineLtr()"> <img src="img/img-controls/text-left.svg" alt=""></button>
+                        <button class="control-btns" onclick="lineCenter()"> <img src="img/img-controls/text-center.svg" alt=""></button>
+                        <button class="control-btns" onclick="lineRtl()"> <img src="img/img-controls/text-right.svg" alt=""></button>
                         <img src="img/img-controls/line.svg" alt="">
-                        <button class="control-btns" onclick="removeLine()">A</button>
-                        <button class="control-btns" onclick="removeLine()"> <img src="img/img-controls/color.svg" alt=""></button>
+
+                        <input style="height: 0; width: 0; opacity: 0; " oninput="setStrokeColor(this)" type="color" name="stroke-color" id="stroke-color">
+                        <label for="stroke-color" class="control-btns stroke-btn">A</label>
+                        <label for="text-color" class="control-btns"> <img src="img/img-controls/color.svg" alt=""></label>
+                        <input style="height: 0; width: 0; opacity: 0; " oninput="setTextColor(this)" type="color" name="text-color" id="text-color">
                     </div>
-                    <input placeholder="One does not simply" type="text" name="meme-text" oninput="inputChanged(this)">
+                    <input placeholder="Write something here ..." type="text" name="meme-text" oninput="inputChanged(this)">
                 </div>
                 <div class="stikers">
-                    <img src="img/emoji/1.png" alt="">
-                    <img src="img/emoji/2.png" alt="">
-                    <img src="img/emoji/3.png" alt="">
-                    <img src="img/emoji/4.png" alt="">
-                    <img src="img/emoji/5.png" alt="">
-                    <img src="img/emoji/6.png" alt="">
-                    <img src="img/emoji/7.png" alt="">
-                    <img src="img/emoji/8.png" alt="">
-                    <img src="img/emoji/9.png" alt="">
-                    <img src="img/emoji/10.png" alt="">
-                    <img src="img/emoji/11.png" alt="">
-                    <img src="img/emoji/12.png" alt="">
+                    <img onclick="addEmoji(1)" src="img/emoji/1.png" alt="">
+                    <img onclick="addEmoji(2)" src="img/emoji/2.png" alt="">
+                    <img onclick="addEmoji(3)" src="img/emoji/3.png" alt="">
+                    <img onclick="addEmoji(4)" src="img/emoji/4.png" alt="">
+                    <img onclick="addEmoji(5)" src="img/emoji/5.png" alt="">
+                    <img onclick="addEmoji(6)" src="img/emoji/6.png" alt="">
+                    <img onclick="addEmoji(7)" src="img/emoji/7.png" alt="">
+                    <img onclick="addEmoji(8)" src="img/emoji/8.png" alt="">
+                    <img onclick="addEmoji(9)" src="img/emoji/9.png" alt="">
+                    <img onclick="addEmoji(10)" src="img/emoji/10.png" alt="">
+                    <img onclick="addEmoji(11)" src="img/emoji/11.png" alt="">
+                    <img onclick="addEmoji(12)" src="img/emoji/12.png" alt="">
+                </div>
+
+                <div class="share">
+                    <button class="share-btn">Share</button>
+                    <ul>
+                        <li><a href="">Save</a> </li>
+                        <li><a href="">Download</a> </li>
+                        <li><a href="">Facebook sharing</a> </li>
+                    </ul>
+
                 </div>
 
 

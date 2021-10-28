@@ -109,7 +109,6 @@ button {
     align-items: center;
     background-color: #F8F8F8;
     height: 93vh;
-    overflow: hidden;
 }
 
 .stikers {
@@ -121,6 +120,7 @@ button {
     grid-template-columns: repeat(6, 81px);
     grid-template-rows: 81px 81px;
     padding: 5px;
+    margin-bottom: 194px;
 }
 
 .stikers img {
@@ -156,4 +156,30 @@ button {
     font-weight: 400;
     margin-inline-start: 3px;
     vertical-align: top;
+}
+
+.stroke-btn {
+    font-family: Georgia;
+    color: white;
+    font-size: 18px;
+    -webkit-text-stroke-width: 0.7px;
+    -webkit-text-stroke-color: #727272;
+    margin-bottom: 7px;
+}
+
+.share-btn {
+    background-color: #FF9826;
+    width: 140px;
+    height: 54px;
+    border-radius: 35px;
+    border: 1px solid #FF9826;
+    text-transform: uppercase;
+    color: white;
+    font-size: 18px;
+    float: right;
+}
+
+.share {
+    align-self: flex-end;
+    margin-inline-end: 60px;
 }
