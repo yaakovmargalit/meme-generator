@@ -149,6 +149,7 @@ function addEmoji(emojiNum) {
 
 function saveCanvasLocal() {
     gMyMemes.push(gElCanvas.toDataURL())
+    console.log(gMyMemes)
     saveToStorage('my-memes', gMyMemes)
 }
 

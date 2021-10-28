@@ -1,5 +1,6 @@
 function init() {
     renderGallery()
+
 }
 
 function renderGallery() {
