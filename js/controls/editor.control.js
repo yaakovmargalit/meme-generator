@@ -147,6 +147,15 @@ function addEmoji(emojiNum) {
     }
 }
 
+function saveCanvasLocal() {
+    saveToStorage('my-memes', [gElCanvas.toDataURL()])
+}
+
+function downloadImg(elLink) {
+    var imgContent = gElCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
+}
+
 function drawText(text, x, y, size, dir, stroke, color) {
     var xStart = x
     gCtx.font = size + 'px Impact';

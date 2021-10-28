@@ -1,4 +1,3 @@
-
 function loadFromStorage(key) {
     const json = localStorage.getItem(key)
     const val = JSON.parse(json)

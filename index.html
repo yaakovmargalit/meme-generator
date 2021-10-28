@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/image-gallery.css">
     <link rel="stylesheet" href="css/meme-editor.css">
+    <link rel="stylesheet" href="css/memes.css">
     <title>Meme Generator</title>
 </head>
 
@@ -108,9 +109,9 @@
                 <div class="share">
                     <button class="share-btn">Share</button>
                     <ul>
-                        <li><a href="">Save</a> </li>
-                        <li><a href="">Download</a> </li>
-                        <li><a href="">Facebook sharing</a> </li>
+                        <li><a href="" onclick="saveCanvasLocal()">Save</a> </li>
+                        <li><a href="" onclick="downloadImg(this)" download="my-img.jpg">Download</a> </li>
+                        <li><a href="">Share on Facebook</a> </li>
                     </ul>
 
                 </div>
@@ -120,13 +121,20 @@
             </div>
 
         </div>
+
+        <div class="memes">
+
+        </div>
     </div>
 
 
 
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/memes.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/controls/gallaery.control.js"></script>
     <script src="js/controls/editor.control.js"></script>
+    <script src="js/controls/memes.control.js"></script>
 </body>
 
 </html>
