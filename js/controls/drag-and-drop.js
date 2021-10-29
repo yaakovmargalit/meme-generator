@@ -1,11 +1,15 @@
 var gStartPos
-
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 function addMouseListeners() {
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mouseup', onUp)
+    gElCanvas.addEventListener('touchmove', onMove)
+    gElCanvas.addEventListener('touchstart', onDown)
+    gElCanvas.addEventListener('touchend', onUp)
 }
+
 
 
 function onDown(ev) {
@@ -44,6 +48,14 @@ function getEvPos(ev) {
     var pos = {
         x: ev.offsetX,
         y: ev.offsetY
+    }
+    if (gTouchEvs.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
+        }
     }
     return pos
 }
