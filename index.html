@@ -79,9 +79,9 @@
                         <button class="font-size-btn control-btns" onclick="increaseFont()">A <span>+</span></button>
                         <button class="font-size-btn control-btns" onclick="decreaseFont()">A <span>-</span></button>
                         <img src="img/img-controls/line.svg" alt="">
-                        <button class="control-btns" onclick="lineLtr()"> <img src="img/img-controls/text-left.svg" alt=""></button>
-                        <button class="control-btns" onclick="lineCenter()"> <img src="img/img-controls/text-center.svg" alt=""></button>
-                        <button class="control-btns" onclick="lineRtl()"> <img src="img/img-controls/text-right.svg" alt=""></button>
+                        <button class="control-btns" onclick="alignText('ltr')"> <img src="img/img-controls/text-left.svg" alt=""></button>
+                        <button class="control-btns" onclick="alignText('center')"> <img src="img/img-controls/text-center.svg" alt=""></button>
+                        <button class="control-btns" onclick="alignText('rtl')"> <img src="img/img-controls/text-right.svg" alt=""></button>
                         <img src="img/img-controls/line.svg" alt="">
 
                         <input style="height: 0; width: 0; opacity: 0; " oninput="setStrokeColor(this)" type="color" name="stroke-color" id="stroke-color">
@@ -137,6 +137,7 @@
     <script src="js/controls/gallaery.control.js"></script>
     <script src="js/controls/editor.control.js"></script>
     <script src="js/controls/memes.control.js"></script>
+    <script src="js/controls/drag-and-drop.js"></script>
 </body>
 
 </html>

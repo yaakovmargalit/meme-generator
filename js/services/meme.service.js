@@ -100,8 +100,13 @@ var gMeme = {
         align: 'center',
         color: '#fff',
         stroke: '#000',
-        positionY: 40,
-        width: 400
+        pos: {
+            x: 10,
+            y: 1
+        },
+        width: 390,
+        height: 50,
+        isDrag: false
     }]
 }
 
