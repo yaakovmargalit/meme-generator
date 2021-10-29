@@ -38,9 +38,9 @@ function renderCanvas(imgId) {
             var emoji = new Image();
             emoji.src = `img/emoji/${line.emojiNum}.png`
             emoji.onload = () => {
-                gCtx.drawImage(emoji, line.pos.x, line.pos.y, 75, 75);
+                gCtx.drawImage(emoji, line.pos.x, line.pos.y, line.emojiWidth, line.emojiWidth);
                 if (idx + 1 === gMeme.selectedLineIdx) {
-                    drawRect(line.pos.x, line.pos.y, 80, 80)
+                    drawRect(line.pos.x, line.pos.y, line.width, line.height)
                 }
             }
         }
@@ -58,12 +58,20 @@ function inputChanged(input) {
 function increaseFont() {
     gMeme.lines[gMeme.selectedLineIdx - 1].size++;
     gMeme.lines[gMeme.selectedLineIdx - 1].height++;
+    if (gMeme.lines[gMeme.selectedLineIdx - 1].type === 'emoji') {
+        gMeme.lines[gMeme.selectedLineIdx - 1].width++;
+        gMeme.lines[gMeme.selectedLineIdx - 1].emojiWidth++;
+    }
     renderCanvas(gMeme.selectedImgId)
 }
 
 function decreaseFont() {
     gMeme.lines[gMeme.selectedLineIdx - 1].size--;
     gMeme.lines[gMeme.selectedLineIdx - 1].height--;
+    if (gMeme.lines[gMeme.selectedLineIdx - 1].type === 'emoji') {
+        gMeme.lines[gMeme.selectedLineIdx - 1].width--;
+        gMeme.lines[gMeme.selectedLineIdx - 1].emojiWidth--;
+    }
     renderCanvas(gMeme.selectedImgId)
 }
 
@@ -106,21 +114,7 @@ function alignText(dir) {
     }
 }
 
-// function lineLtr() {
-//     gMeme.lines[gMeme.selectedLineIdx - 1].align = 'ltr'
-//     renderCanvas(gMeme.selectedImgId)
-// }
 
-// function lineRtl() {
-//     gMeme.lines[gMeme.selectedLineIdx - 1].align = 'rtl'
-//     renderCanvas(gMeme.selectedImgId)
-// }
-
-// function lineCenter() {
-//     gMeme.lines[gMeme.selectedLineIdx - 1].align = 'center'
-//     console.log(gMeme.lines)
-//     renderCanvas(gMeme.selectedImgId)
-// }
 
 function setStrokeColor(color) {
     gMeme.lines[gMeme.selectedLineIdx - 1].stroke = color.value
@@ -171,6 +165,7 @@ function addEmoji(emojiNum) {
             },
             width: 80,
             height: 80,
+            emojiWidth: 75,
             isDrag: false
         })
         gMeme.selectedLineIdx = gMeme.lines.length
@@ -179,7 +174,10 @@ function addEmoji(emojiNum) {
 }
 
 function saveCanvasLocal() {
-    gMyMemes.push(gElCanvas.toDataURL())
+    gMyMemes.push({
+        src: gElCanvas.toDataURL(),
+        id: gMeme.selectedImgId
+    })
     console.log(gMyMemes)
     saveToStorage('my-memes', gMyMemes)
 }

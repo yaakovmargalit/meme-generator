@@ -90,27 +90,32 @@ var gImgs = [{
     },
 ];
 
-var gMeme = {
-    selectedImgId: 1,
-    selectedLineIdx: 1,
-    lines: [{
-        type: 'txt',
-        txt: 'Text...',
-        size: 40,
-        align: 'center',
-        color: '#fff',
-        stroke: '#000',
-        pos: {
-            x: 10,
-            y: 1
-        },
-        width: 390,
-        height: 50,
-        isDrag: false
-    }]
+var gMeme;
+
+function getNewMeme() {
+    return {
+        id: makeId(),
+        selectedImgId: 1,
+        selectedLineIdx: 1,
+        lines: [{
+            type: 'txt',
+            txt: 'Text...',
+            size: 40,
+            align: 'center',
+            color: '#fff',
+            stroke: '#000',
+            pos: {
+                x: 10,
+                y: 1
+            },
+            width: 390,
+            height: 50,
+            isDrag: false
+        }]
+    }
 }
 
-
+createMeme()
 
 function getImgSrc(id) {
     return gImgs.find(img => img.id === +id).url

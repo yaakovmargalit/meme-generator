@@ -2,7 +2,7 @@ renderMemes()
 
 function renderMemes() {
     var memes = gMyMemes.map(meme => {
-        return `<img src="${meme}"/>`
+        return `<img src="${meme.src}" onclick="createMeme('${meme.id}')"/>`
     });
     console.log(document.querySelector('.memes-grid'))
     document.querySelector('.memes-grid').innerHTML = memes.join('')
