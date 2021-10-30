@@ -225,3 +225,12 @@ function shareOnFB() {
 
     })
 }
+resizeCanvas()
+
+function resizeCanvas() {
+    var elContainer = document.querySelector('.canvas-container');
+    // Note: changing the canvas dimension this way clears the canvas
+    gElCanvas.width = elContainer.offsetWidth - 20;
+    // Unless needed, better keep height fixed.
+    //   gCanvas.height = elContainer.offsetHeight
+}

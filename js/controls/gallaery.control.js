@@ -27,3 +27,7 @@ function backToGallery() {
     document.querySelector('.gallery-item').classList.add('activ')
     document.querySelector('.meme-item').classList.remove('activ')
 }
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open')
+}

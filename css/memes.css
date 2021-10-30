@@ -14,7 +14,7 @@
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-columns: repeat(5, 210px);
+    grid-template-columns: repeat(auto-fit, 210px);
     grid-auto-rows: 210px;
     gap: 25px;
     margin-top: 50px;
