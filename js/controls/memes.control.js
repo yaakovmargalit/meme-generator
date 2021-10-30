@@ -1,12 +1,14 @@
 renderMemes()
 
 function renderMemes() {
-    var memes = gMyMemes.map(meme => {
-        // console.log(meme.meme)
-        return `<img src="${meme.src}" onclick="editMeme('${meme.meme.id}')"/>`
-    });
-    console.log(document.querySelector('.memes-grid'))
-    document.querySelector('.memes-grid').innerHTML = memes.join('')
+    if (gMyMemes.length) {
+        var memes = gMyMemes.map(meme => {
+            // console.log(meme.meme)
+            return `<img src="${meme.src}" onclick="editMeme('${meme.meme.id}')"/>`
+        });
+        console.log(document.querySelector('.memes-grid'))
+        document.querySelector('.memes-grid').innerHTML = memes.join('')
+    }
 }
 
 function goMemes() {
