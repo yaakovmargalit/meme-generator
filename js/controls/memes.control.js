@@ -1,6 +1,7 @@
 renderMemes()
 
 function renderMemes() {
+    console.log(gMyMemes)
     if (gMyMemes.length) {
         var memes = gMyMemes.map(meme => {
             // console.log(meme.meme)
