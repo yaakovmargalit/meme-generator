@@ -198,9 +198,9 @@ button {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 200;
-    /* transform: scaleY(0); */
-    /* transform-origin: bottom; */
+    /* height: 200; */
+    transform: scaleY(0);
+    transform-origin: bottom;
     transition: transform 0.5s;
 }
 
@@ -208,9 +208,14 @@ button {
     background-color: rgb(226, 208, 138);
 }
 
-.share-btn:focus+.share-menu {
-    /* transform: scaleY(1); */
+
+/* .share-btn:focus+.share-menu {
+    transform: scaleY(1);
     height: 200px;
+} */
+
+body.share-open .share-menu {
+    transform: scaleY(1);
 }
 
 @media (max-width:600px) {
