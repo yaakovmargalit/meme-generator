@@ -12,7 +12,7 @@ function renderGallery() {
 }
 
 function createMeme(id) {
-    gMeme = getNewMeme()
+    if (!gMeme) gMeme = getNewMeme()
     document.querySelector('.gallery').style.display = 'none'
     document.querySelector('.meme-editor').style.display = 'flex'
     renderEditor(id)

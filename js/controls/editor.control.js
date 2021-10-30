@@ -174,10 +174,17 @@ function addEmoji(emojiNum) {
 }
 
 function saveCanvasLocal() {
-    gMyMemes.push({
-        src: gElCanvas.toDataURL(),
-        id: gMeme.selectedImgId
-    })
+    if (gMeme.id) {
+        const editedMeme = gMyMemes.find(meme => meme.meme.id === gMeme.id)
+        editedMeme.meme.lines = gMeme.lines
+        editedMeme.src = gElCanvas.toDataURL()
+    } else {
+        gMeme.id = makeId()
+        gMyMemes.push({
+            src: gElCanvas.toDataURL(),
+            meme: gMeme
+        })
+    }
     console.log(gMyMemes)
     saveToStorage('my-memes', gMyMemes)
 }

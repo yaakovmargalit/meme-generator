@@ -94,7 +94,6 @@ var gMeme;
 
 function getNewMeme() {
     return {
-        id: makeId(),
         selectedImgId: 1,
         selectedLineIdx: 1,
         lines: [{
@@ -115,7 +114,7 @@ function getNewMeme() {
     }
 }
 
-createMeme()
+// createMeme()
 
 function getImgSrc(id) {
     return gImgs.find(img => img.id === +id).url
