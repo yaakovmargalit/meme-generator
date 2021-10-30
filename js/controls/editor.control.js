@@ -199,7 +199,6 @@ function drawText(text, x, y, size, dir, stroke, color) {
     var xStart = x
     gCtx.font = size + 'px Impact';
     var textData = gCtx.measureText(text);
-    console.log(textData.width)
     gCtx.lineWidth = 1.5;
     gCtx.strokeStyle = stroke;
     gCtx.fillStyle = color;
@@ -241,19 +240,21 @@ function resizeCanvas() {
 
 function toggleShare() {
     document.body.classList.toggle('share-open')
-    const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
+    if (!document.querySelector('.link-for-fb')) {
+        const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
 
-    // A function to be called if request succeeds
-    function onSuccess(uploadedImgUrl) {
-        const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-            // document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
+        // A function to be called if request succeeds
+        function onSuccess(uploadedImgUrl) {
+            const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+                // document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
 
-        document.querySelector('.fb-btn').innerHTML = `
-        <a href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
+            document.querySelector('.fb-btn').innerHTML = `
+        <a class="link-for-fb" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
         Share on Facebook  
         </a>`
+        }
+        doUploadImg(imgDataUrl, onSuccess);
     }
-    doUploadImg(imgDataUrl, onSuccess);
 }
 
 function doUploadImg(imgDataUrl, onSuccess) {

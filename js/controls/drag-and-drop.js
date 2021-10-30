@@ -14,16 +14,16 @@ function addMouseListeners() {
 
 function onDown(ev) {
     const pos = getEvPos(ev)
-        // console.log(pos)
-    if (!isLineClicked(pos)) return
+    var stat = isLineClicked(pos)
+    if (!stat) return
+    gMeme.selectedLineIdx = stat;
+    renderCanvas(gMeme.selectedImgId)
     setLineDrag(true)
     gStartPos = pos
     document.body.style.cursor = 'grabbing'
-    console.log(pos)
 }
 
 function onMove(ev) {
-    //  const circle = getCircle();
     if (gMeme.lines[gMeme.selectedLineIdx - 1].isDrag) {
         const pos = getEvPos(ev)
         const dx = pos.x - gStartPos.x
@@ -60,16 +60,17 @@ function getEvPos(ev) {
     return pos
 }
 
-function isLineClicked(clickedPos) {
-    const { pos, width, height } = gMeme.lines[gMeme.selectedLineIdx - 1]
-        // debugger
-    console.log(pos, width, height)
-    console.log(clickedPos)
 
-    if (clickedPos.x > pos.x && clickedPos.x < clickedPos.x + width && clickedPos.y > pos.y && clickedPos.y < pos.y + height) {
-        console.log(true)
-        return true
-    }
+
+function isLineClicked(clickedPos) {
+    var res;
+    gMeme.lines.forEach((line, idx) => {
+        const { pos, width, height } = line
+        if (clickedPos.x > pos.x && clickedPos.x < clickedPos.x + width && clickedPos.y > pos.y && clickedPos.y < pos.y + height) {
+            res = idx + 1
+        }
+    });
+    return res
 }
 
 
