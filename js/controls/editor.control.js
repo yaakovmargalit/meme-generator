@@ -188,6 +188,7 @@ function saveCanvasLocal() {
     console.log(gMyMemes)
     saveToStorage('my-memes', gMyMemes)
     gMeme = false
+    location.reload();
 }
 
 function downloadImg(elLink) {
