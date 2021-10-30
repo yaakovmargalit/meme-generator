@@ -125,7 +125,7 @@ a {
 
 @media (max-width: 600px) {
     .gallery-imgs-grid {
-        grid-template-columns: repeat(auto-fit, 170px);
+        grid-template-columns: repeat(2, 170px);
         grid-auto-rows: 170;
     }
     .gallery-imgs-grid img {
