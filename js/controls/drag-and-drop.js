@@ -30,11 +30,18 @@ function onDown(ev) {
         document.body.style.cursor = 'nw-resize'
         setLineResize(true)
         gStartPos = pos
-    } else return
+    } else {
+        setLineDrag(false)
+        setLineResize(false)
+        gMeme.selectedLineIdx = 0
+        renderCanvas(gMeme.selectedImgId)
+        return
+    }
 
 }
 
 function onMove(ev) {
+    if (!gMeme.selectedLineIdx) return
     const pos = getEvPos(ev)
     if (gMeme.lines[gMeme.selectedLineIdx - 1].isDrag) {
         const dx = pos.x - gStartPos.x

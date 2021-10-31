@@ -236,20 +236,20 @@ function drawArc(x, y) {
     gCtx.fill();
 }
 
-function shareOnFB() {
+// function shareOnFB() {
 
-    const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
+//     const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
 
-    // A function to be called if request succeeds
+//     // A function to be called if request succeeds
 
-    const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-        // document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
+//     const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+//         // document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
 
-    document.querySelector('.fb-btn').innerHTML = `
-        <a href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
-        Share on Facebook  
-        </a>`
-}
+//     document.querySelector('.fb-btn').innerHTML = `
+//         <a href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
+//         Share on Facebook  
+//         </a>`
+// }
 
 
 function toggleShare() {
@@ -271,27 +271,45 @@ function toggleShare() {
     }
 }
 
-function doUploadImg(imgDataUrl, onSuccess) {
+// function doUploadImg(imgDataUrl, onSuccess) {
 
-    const formData = new FormData();
-    formData.append('img', imgDataUrl)
+//     const formData = new FormData();
+//     formData.append('img', imgDataUrl)
 
-    fetch('//ca-upload.com/here/upload.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(res => res.text())
-        .then((url) => {
-            console.log('Got back live url:', url);
-            onSuccess(url)
-        })
-        .catch((err) => {
-            console.error(err)
-        })
-}
+//     fetch('//ca-upload.com/here/upload.php', {
+//             method: 'POST',
+//             body: formData
+//         })
+//         .then(res => res.text())
+//         .then((url) => {
+//             console.log('Got back live url:', url);
+//             onSuccess(url)
+//         })
+//         .catch((err) => {
+//             console.error(err)
+//         })
+// }
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
+}
+
+async function shareCanvas() {
+    const dataUrl = gElCanvas.toDataURL();
+    const blob = await (await fetch(dataUrl)).blob();
+    const filesArray = [
+        new File(
+            [blob],
+            'animation.png', {
+                type: blob.type,
+                lastModified: new Date().getTime()
+            }
+        )
+    ];
+    const shareData = {
+        files: filesArray,
+    };
+    navigator.share(shareData);
 }
