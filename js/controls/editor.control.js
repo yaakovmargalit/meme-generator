@@ -41,6 +41,8 @@ function renderCanvas(imgId) {
                 gCtx.drawImage(emoji, line.pos.x, line.pos.y, line.emojiWidth, line.emojiWidth);
                 if (idx + 1 === gMeme.selectedLineIdx) {
                     drawRect(line.pos.x, line.pos.y, line.width, line.height)
+                    gMainInput.value = '';
+
                 }
             }
         }
