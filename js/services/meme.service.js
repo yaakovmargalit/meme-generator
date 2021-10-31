@@ -100,6 +100,7 @@ function getNewMeme() {
         lines: [{
             type: 'txt',
             txt: 'Text...',
+            font: 'impact',
             size: 40,
             align: 'center',
             color: '#fff',

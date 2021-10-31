@@ -26,7 +26,7 @@ function renderCanvas(imgId) {
                 y: line.pos.y + 7 + line.height + 3
             }
             if (line.type === 'txt') {
-                drawText(line.txt, line.pos.x, line.pos.y + line.size, line.size, line.align, line.stroke, line.color)
+                drawText(line.txt, line.pos.x, line.pos.y + line.size, line.size, line.align, line.stroke, line.color, line.font)
                 gMainInput.value = gMeme.lines[gMeme.selectedLineIdx - 1].txt;
             }
             if (idx + 1 === gMeme.selectedLineIdx) {
@@ -207,9 +207,9 @@ function downloadImg(elLink) {
     elLink.href = imgContent
 }
 
-function drawText(text, x, y, size, dir, stroke, color) {
+function drawText(text, x, y, size, dir, stroke, color, font) {
     var xStart = x
-    gCtx.font = size + 'px Impact';
+    gCtx.font = size + 'px ' + font;
     var textData = gCtx.measureText(text);
     gCtx.lineWidth = 1.5;
     gCtx.strokeStyle = stroke;
@@ -296,6 +296,10 @@ function resizeCanvas() {
     gElCanvas.height = elContainer.offsetHeight
 }
 
+function changeFont(font) {
+    gMeme.lines[gMeme.selectedLineIdx - 1].font = font
+    renderCanvas(gMeme.selectedImgId)
+}
 async function shareCanvas() {
     const dataUrl = gElCanvas.toDataURL();
     const blob = await (await fetch(dataUrl)).blob();
