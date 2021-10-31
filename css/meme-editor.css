@@ -261,10 +261,16 @@ body.share-open .share-menu {
     }
     .header-controls>:last-child {
         display: flex;
-        justify-items: space-between;
+        justify-content: center
     }
     .header-controls>:last-child * {
         justify-self: flex-start;
+    }
+    .text-controls {
+        justify-content: center
+    }
+    .text-controls>:first-child {
+        margin-left: 25px;
     }
     .header-controls>:first-child {
         font-size: 18px;
