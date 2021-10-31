@@ -93,6 +93,7 @@ var gImgs = [{
 var gMeme;
 
 function getNewMeme() {
+
     return {
         selectedImgId: 1,
         selectedLineIdx: 1,
@@ -107,7 +108,7 @@ function getNewMeme() {
                 x: 10,
                 y: 1
             },
-            width: 390,
+            width: 100,
             height: 50,
             isDrag: false
         }]

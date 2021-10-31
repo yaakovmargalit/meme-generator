@@ -12,7 +12,6 @@ function renderEditor(imgId) {
 }
 
 function renderCanvas(imgId) {
-
     gElCanvas = document.querySelector('.main-canvas');
     gCtx = gElCanvas.getContext('2d');
     addMouseListeners()
@@ -21,13 +20,18 @@ function renderCanvas(imgId) {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
         gMeme.lines.forEach((line, idx) => {
+            line.centerArc = {
+                x: line.pos.x + 3 + line.width + 3,
+                y: line.pos.y + 7 + line.height + 3
+            }
             if (line.type === 'txt') {
                 drawText(line.txt, line.pos.x, line.pos.y + line.size, line.size, line.align, line.stroke, line.color)
                 gMainInput.value = gMeme.lines[gMeme.selectedLineIdx - 1].txt;
             }
             if (idx + 1 === gMeme.selectedLineIdx) {
-                var yHeight = gMeme.lines[gMeme.selectedLineIdx - 1].size
-                drawRect(5, (gMeme.lines[gMeme.selectedLineIdx - 1].pos.y + line.size) - yHeight, 390, yHeight + 10)
+                drawRect(line.pos.x - 5, (line.pos.y + line.size) - line.size, line.width, line.size + 10)
+                gCtx.beginPath()
+                drawArc(line.centerArc.x, line.centerArc.y)
             }
         })
 
@@ -40,9 +44,9 @@ function renderCanvas(imgId) {
             emoji.onload = () => {
                 gCtx.drawImage(emoji, line.pos.x, line.pos.y, line.emojiWidth, line.emojiWidth);
                 if (idx + 1 === gMeme.selectedLineIdx) {
-                    drawRect(line.pos.x, line.pos.y, line.width, line.height)
+                    drawRect(line.pos.x - 5, line.pos.y, line.width + 5, line.height)
+                        // drawArc(line.pos.x - 5 + line.width, line.pos.y + line.height)
                     gMainInput.value = '';
-
                 }
             }
         }
@@ -63,6 +67,8 @@ function increaseFont() {
     if (gMeme.lines[gMeme.selectedLineIdx - 1].type === 'emoji') {
         gMeme.lines[gMeme.selectedLineIdx - 1].width++;
         gMeme.lines[gMeme.selectedLineIdx - 1].emojiWidth++;
+    } else {
+        gMeme.lines[gMeme.selectedLineIdx - 1].width += 3;
     }
     renderCanvas(gMeme.selectedImgId)
 }
@@ -73,6 +79,8 @@ function decreaseFont() {
     if (gMeme.lines[gMeme.selectedLineIdx - 1].type === 'emoji') {
         gMeme.lines[gMeme.selectedLineIdx - 1].width--;
         gMeme.lines[gMeme.selectedLineIdx - 1].emojiWidth--;
+    } else {
+        gMeme.lines[gMeme.selectedLineIdx - 1].width -= 3;
     }
     renderCanvas(gMeme.selectedImgId)
 }
@@ -136,7 +144,7 @@ function addLine() {
         align: 'center',
         color: '#fff',
         stroke: '#000',
-        width: 390,
+        width: 100,
         height: 50,
         pos: {
             x: 10,
@@ -217,6 +225,16 @@ function drawRect(x, y, w, h) {
     gCtx.beginPath();
 }
 
+function drawArc(x, y) {
+    // gCtx.beginPath();
+    gCtx.lineWidth = 3;
+    gCtx.arc(x, y, 6, 0, 2 * Math.PI);
+    gCtx.strokeStyle = 'pink';
+    gCtx.stroke();
+    gCtx.fillStyle = 'blue';
+    gCtx.fill();
+}
+
 function shareOnFB() {
 
     const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
@@ -231,15 +249,7 @@ function shareOnFB() {
         Share on Facebook  
         </a>`
 }
-resizeCanvas()
 
-function resizeCanvas() {
-    var elContainer = document.querySelector('.canvas-container');
-    // Note: changing the canvas dimension this way clears the canvas
-    gElCanvas.width = elContainer.offsetWidth - 20;
-    // Unless needed, better keep height fixed.
-    //   gCanvas.height = elContainer.offsetHeight
-}
 
 function toggleShare() {
     document.body.classList.toggle('share-open')

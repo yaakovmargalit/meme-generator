@@ -23,7 +23,7 @@ function goMemes() {
 function editMeme(id) {
     console.log(id)
     gMeme = getMeme(id)
-    console.log(gMeme)
+    document.querySelector('.memes').style.display = 'none'
     createMeme(gMeme.selectedImgId)
 }
 

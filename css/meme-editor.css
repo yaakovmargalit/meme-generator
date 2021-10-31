@@ -219,8 +219,19 @@ body.share-open .share-menu {
 }
 
 @media (max-width:600px) {
+    .main-canvas {
+        margin-block-start: 10px;
+        margin-block-end: 10px;
+        width: 330px;
+        height: 330px;
+    }
+    .back {
+        display: none;
+    }
     .meme-editor {
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     .meme-editor>:last-child {
         width: 377px;
@@ -230,6 +241,20 @@ body.share-open .share-menu {
     }
     .header-controls {
         width: 335px;
+        padding: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .header-controls>:last-child {
+        display: flex;
+        justify-items: space-between;
+    }
+    .header-controls>:last-child * {
+        justify-self: flex-start;
+    }
+    .header-controls>:first-child {
+        font-size: 18px;
+        color: #727272;
     }
     .stikers {
         height: 165px;
