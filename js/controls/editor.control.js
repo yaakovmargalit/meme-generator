@@ -12,6 +12,7 @@ function renderEditor(imgId) {
 }
 
 function renderCanvas(imgId) {
+
     gElCanvas = document.querySelector('.main-canvas');
     gCtx = gElCanvas.getContext('2d');
     addMouseListeners()
@@ -287,4 +288,10 @@ function doUploadImg(imgDataUrl, onSuccess) {
         .catch((err) => {
             console.error(err)
         })
+}
+
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
 }

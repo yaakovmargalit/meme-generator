@@ -1,6 +1,6 @@
 function init() {
     renderGallery()
-
+    resizeCanvas()
 }
 
 function renderGallery() {

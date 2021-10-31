@@ -17,6 +17,11 @@ button {
     cursor: pointer;
 }
 
+.canvas-container {
+    height: 400px;
+    width: 400px;
+}
+
 .main-canvas {
     margin-block-start: 156px;
     border-radius: 10px;
@@ -219,11 +224,16 @@ body.share-open .share-menu {
 }
 
 @media (max-width:600px) {
-    .main-canvas {
+    .canvas-container {
+        height: 320px;
+        width: 320px;
         margin-block-start: 10px;
         margin-block-end: 10px;
-        width: 330px;
-        height: 330px;
+    }
+    .main-canvas {
+        margin-block-start: 0;
+        /* width: 330px;
+        height: 330px; */
     }
     .back {
         display: none;

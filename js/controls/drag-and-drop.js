@@ -8,6 +8,10 @@ function addMouseListeners() {
     gElCanvas.addEventListener('touchmove', onMove)
     gElCanvas.addEventListener('touchstart', onDown)
     gElCanvas.addEventListener('touchend', onUp)
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        renderCanvas(gMeme.selectedImgId)
+    })
 }
 
 
@@ -41,6 +45,7 @@ function onMove(ev) {
         if (pos.y > gStartPos.y) increaseFont()
         else decreaseFont()
         gStartPos = pos
+        renderCanvas(gMeme.selectedImgId)
     }
 }
 
