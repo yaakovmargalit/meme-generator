@@ -18,6 +18,7 @@ function addMouseListeners() {
 
 function onDown(ev) {
     const pos = getEvPos(ev)
+        // console.log(pos)
     var idxLineClicked = isLineClicked(pos)
     if (idxLineClicked) {
         gMeme.selectedLineIdx = idxLineClicked;
@@ -68,10 +69,18 @@ function getEvPos(ev) {
     if (gTouchEvs.includes(ev.type)) {
         ev.preventDefault()
         ev = ev.changedTouches[0]
+            // console.log(ev.pageX - ev.target.offsetLeft - ev.target.clientLeft)
+            // console.log(ev.target.offsetLeft)
+            // console.log(ev.target.clientLeft)
+        console.log(ev.target.offsetTop);
+        console.log(ev.target.clientTop);
+        console.log(ev.pageY);
+
         pos = {
-            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
-        }
+                x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+                y: ev.pageY - ev.target.offsetTop - ev.target.clientTop - 55
+            }
+            // console.log(ev.target)
     }
     return pos
 }
@@ -79,10 +88,11 @@ function getEvPos(ev) {
 
 
 function isLineClicked(clickedPos) {
+    // console.log(clickedPos)
     var res;
     gMeme.lines.forEach((line, idx) => {
         const { pos, width, height } = line
-        console.log(clickedPos.x + width)
+        // console.log(pos, width, height);
         if (clickedPos.x > pos.x && clickedPos.x < pos.x + width && clickedPos.y > pos.y && clickedPos.y < pos.y + height) {
             res = idx + 1
         }

@@ -4,7 +4,7 @@ function init() {
 }
 
 function renderGallery() {
-    var strHtml = '<button class="upload-btn">Upload your photo <br> <img</button>'
+    var strHtml = '<button class="upload-btn">Upload your photo <br> </button>'
     for (let i = 1; i <= 17; i++) {
         strHtml += `<img src="img/${i}.jpg" id="${i}" onclick="createMeme(this.id)">`
     }
